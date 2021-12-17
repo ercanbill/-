@@ -6,9 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
     <script src="./script/script.js"></script>
+    <script>
+function liveStr(){
+document.getElementById('body').style.width = "100%";
+document.getElementById('body').style.height = "100vh";
+document.getElementById('body').style.margin = "0px";
+document.getElementById('body').style.padding = "0px";
+ var canvas = document.getElementById('canvas');
+ var live = document.createElement("canvas");
+ document.body.appendChild(live);
+  var x = screen.width;
+  var rxm = x;
+  var rxp = x*(6/10);
+  var rym = rxm * (9/16);
+  var ryp = rxp * (9/16);
+if(x<=1024){
+  document.getElementById('canvas').style.width = rxm+"px";
+  document.getElementById('canvas').style.height = rym+"px";
+document.getElementById('downloadbut').style.display = "none";
+document.getElementById('canvas').style.borderRadius = "0px 0px 22px 22px";
+document.getElementById('canvas').style.margin = "0";
+document.getElementById('canvas').style.padding = "0";
+  document.getElementById('canvas').style.backgroundColor = "tomato";
+  }else{
+	document.getElementById('canvas').style.width = rxp+"px";
+  	document.getElementById('canvas').style.height = ryp+"px";
+	
+document.getElementById('canvasvid').style.display = "none";
+document.getElementById('download').innerHTML = "could not works at pc,please download our app";
+document.getElementById('download').style.fontFamily = "Manrope,sans-serif";
+document.getElementById('download').style.fontSize = "36px";
+document.getElementById('canvas').style.borderRadius = "22px";
+document.getElementById('canvas').style.margin = "8px";
+
+document.getElementById('body').style.margin = "4px";
+document.getElementById('body').style.overflow = "hidden";
+document.getElementById('canvas').style.padding = "0";
+  document.getElementById('canvas').style.backgroundColor = "blue";
+}
+  
+}
+</script>
     <title>Sponeck — "Beyoğlu demek sinema demektir"</title>
 </head>
-<body id="body">
+<body id="body" onload="liveStr()">
     <div class="container" id="container">
         <div class="header" id="header" onclick="buttonsBorder()">
             <div class="logo" id="logo">
@@ -38,6 +79,17 @@
             <a href="#header"><button>gel</button></a>
             <a href="ercanbill.github.io/common/cppcompiler">Bu sitenin linki</a>
             <a href="https://ercanbill.github.io/common/joker.html">JOKER Filmi</a>
+            
+            
+            <div id="canvas" onclick="resizeSce()" onmouseout="resizeCan()">
+    <video controls muted id="canvasvid" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" style="width: 100%;height: 100%;border-radius: 0px 0px 22px 22px"></video>
+	<p id="download"></p>
+	<div id="downloadbut">
+	<a href="#"><button>App Store</button></a>
+	<a href="#"><button>Google Play Store</button></a>
+	</div>
+</div>
+            
         </div>
         <div class="pazar" id="pazar">
 
